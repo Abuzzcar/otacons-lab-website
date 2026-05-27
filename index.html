@@ -18,7 +18,6 @@
             line-height: 1.5;
             padding: 30px;
             margin: 0;
-            /* Subtle blue-tinted CRT scanline effect */
             background-image: linear-gradient(rgba(0, 229, 255, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
             background-size: 100% 4px;
         }
@@ -164,7 +163,7 @@
             <div class="project-title">XNetProfiles</div>
             <p>Homebrew for the Original Xbox, allowing you to quickly switch network configs in a few button presses.</p>
             <p><span class="tag">C</span><span class="tag">Homebrew</span><span class="tag">NXDK</span></p>
-            &gt;&gt; <a class="ext-link" href="https://github.com" target="_blank" rel="noopener noreferrer">ACCESS_REPOSITORY</a>
+            &gt;&gt; <a class="ext-link" href="https://github.com/Abuzzcar/XNetProfiles" target="_blank" rel="noopener noreferrer">ACCESS_REPOSITORY</a>
         </div>
 
         <!-- Project 2 -->
@@ -190,14 +189,14 @@
             link.addEventListener("click", (e) => {
                 e.preventDefault();
 
-                // 1. Swap active style states
+                //Swap active style states
                 navLinks.forEach(l => l.classList.remove("active"));
                 link.classList.add("active");
 
-                // 2. Extract selected category string
+                //Extract selected category string
                 const filterValue = link.getAttribute("data-filter");
 
-                // 3. Evaluate and instantly filter matching cards
+                //Filter matching cards
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute("data-category");
 
