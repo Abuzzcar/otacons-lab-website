@@ -16,7 +16,7 @@
             font-family: 'Courier New', Courier, monospace;
             font-size: 15px;
             line-height: 1.5;
-            padding: 30px;
+            padding: 15px; 
             margin: 0;
             background-image: linear-gradient(rgba(0, 229, 255, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
             background-size: 100% 4px;
@@ -25,22 +25,7 @@
             max-width: 1100px;
             margin: 0 auto;
             width: 100%;
-        }
-        
-        .header-logo-container {
-            width: 100%;
-            overflow-x: visible;
-            margin-bottom: 20px;
-        }
-        pre.logo-art {
-            color: var(--terminal-blue);
-            text-shadow: var(--glow);
-            margin: 0;
-            line-height: 1.05; 
-            white-space: pre;
-            display: inline-block;
-            transform-origin: left top;
-	    transform: scale(0.8);
+            box-sizing: border-box;
         }
         
         .status-bar {
@@ -49,8 +34,25 @@
             margin-bottom: 20px;
             font-weight: bold;
             text-shadow: var(--glow);
+            word-break: break-word; 
         }
 
+        .header-logo-container {
+            width: 100%;
+            margin: 20px 0;
+            display: flex;
+            justify-content: flex-start;
+            overflow: hidden;
+        }
+        pre.logo-art {
+            color: var(--terminal-blue);
+            text-shadow: var(--glow);
+            margin: 0;
+            line-height: 1.05; 
+            white-space: pre;
+            font-size: 1.15vw; 
+        }
+        
         .sub-bar {
             border-bottom: 1px dashed var(--border-teal);
             padding-bottom: 12px;
@@ -61,19 +63,21 @@
 
         .nav-menu {
             margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .nav-link {
             color: var(--terminal-blue);
             background-color: transparent;
             border: 1px solid var(--terminal-blue);
-            padding: 4px 10px;
+            padding: 6px 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-right: 10px;
             box-shadow: none;
             transition: all 0.15s ease;
+            white-space: nowrap; 
         }
-        /* Active directory highlight state */
         .nav-link.active, .nav-link:hover {
             color: #020b14;
             background-color: var(--terminal-blue);
@@ -95,6 +99,8 @@
             padding: 2px 6px;
             font-size: 12px;
             margin-right: 5px;
+            display: inline-block;
+            margin-bottom: 5px;
         }
         a.ext-link {
             color: #ffffff;
@@ -105,21 +111,17 @@
             color: var(--terminal-blue);
             text-shadow: var(--glow);
         }
-
         @media (max-width: 768px) {
             pre.logo-art {
-                transform: scale(0.65); 
-            }
-            .header-logo-container {
-                height: 75px; 
+                font-size: 1.5vw;
             }
         }
         @media (max-width: 480px) {
             pre.logo-art {
-                transform: scale(0.42);
+                font-size: 2.1vw;
             }
-            .header-logo-container {
-                height: 50px;
+            body {
+                padding: 12px;
             }
         }
     </style>
@@ -131,34 +133,28 @@
         CONNECTED TO: OTACONS-LAB.COM // CODEC FREQ: 141.12 // By Abuzzcar
     </div>
 
-<h1 aria-label="Otacon's Lab" class="header-logo-container">
+    <div class="header-logo-container" role="banner" aria-label="Otacon's Lab">
 <pre aria-hidden="true" class="logo-art">
   ▄▄▄▄▄                                ▄        ▄▄▄            ▄▄    
 ▄███████▄  ██                          ▀        ███            ██    
-███   ███ ▀██▀▀ ▀▀█▄ ▄████ ▄███▄ ████▄  ▄█▀▀▀   ███       ▀▀█▄ ████▄ 
-███▄▄▄███  ██  ▄█▀██ ██    ██ ██ ██ ██  ▀███▄   ███      ▄█▀██ ██ ██ 
+███   ███ ▀██▀▀ ▀▀█▄ ▄████ ▄███▄ ████▄  ▄█▀▀▀   ███        ▀▀█▄ ████▄ 
+███▄▄▄███  ██  ▄█▀██ ██    ██ ██ ██ ██  ▀███▄   ███       ▄█▀██ ██ ██ 
  ▀█████▀   ██  ▀█▄██ ▀████ ▀███▀ ██ ██  ▄▄▄█▀   ████████ ▀█▄██ ████▀
 </pre>
-</h1>
-
-    <p> Building niche solutions to personal annoyances from inside a locked server room container</p>
-    <div class="status-bar">
     </div>
 
+    <p>Building niche solutions to personal annoyances from inside a locked server room container</p>
+    
     <div class="nav-menu">
         <a href="#" class="nav-link active" data-filter="all">DIR_ALL</a>
         <a href="#" class="nav-link" data-filter="software">DIR_SOFTWARE</a>
         <a href="#" class="nav-link" data-filter="hardware">DIR_HARDWARE</a>
     </div>
 
-    <!-- PROJECT SECTION -->
     <div id="projects-container">
         <h2>//PROJECTS_LIST</h2>
+        <div class="sub-bar"></div>
 
-	<div class="sub-bar">
-	</div>
-
-        <!-- Project 1 -->
         <div class="project-card" data-category="software">
             <div class="project-title">XNetProfiles</div>
             <p>Homebrew for the Original Xbox, allowing you to quickly switch network configs in a few button presses.</p>
@@ -166,7 +162,6 @@
             &gt;&gt; <a class="ext-link" href="https://github.com/Abuzzcar/XNetProfiles" target="_blank" rel="noopener noreferrer">ACCESS_REPOSITORY</a>
         </div>
 
-        <!-- Project 2 -->
         <div class="project-card" data-category="software">
             <div class="project-title">AetherFS</div>
             <p>Custom open source virtual file system, store files in a single file which acts as a virtual disk.</p>
@@ -174,12 +169,9 @@
             <p><span class="tag">Python</span></p>
             &gt;&gt; <a class="ext-link" href="#">ACCESS_REPOSITORY</a>
         </div>
-
     </div>
-
 </div>
 
-<!-- Nav bar script -->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const navLinks = document.querySelectorAll(".nav-link");
@@ -188,18 +180,13 @@
         navLinks.forEach(link => {
             link.addEventListener("click", (e) => {
                 e.preventDefault();
-
-                //Swap active style states
                 navLinks.forEach(l => l.classList.remove("active"));
                 link.classList.add("active");
 
-                //Extract selected category string
                 const filterValue = link.getAttribute("data-filter");
 
-                //Filter matching cards
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute("data-category");
-
                     if (filterValue === "all" || cardCategory === filterValue) {
                         card.style.display = "block";
                     } else {
