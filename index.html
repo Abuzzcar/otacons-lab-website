@@ -111,6 +111,25 @@
             color: var(--terminal-blue);
             text-shadow: var(--glow);
         }
+        footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 2px solid var(--border-teal);
+            font-size: 13px;
+            color: var(--border-teal);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-link {
+            color: var(--terminal-blue);
+            text-decoration: none;
+        }
+        .footer-link:hover {
+            text-decoration: underline;
+            text-shadow: var(--glow);
+        }
         @media (max-width: 768px) {
             pre.logo-art {
                 font-size: 1.5vw;
@@ -145,14 +164,24 @@
 
     <p>Building niche solutions to personal annoyances from inside a locked server room container</p>
     
-    <div class="nav-menu">
-        <a href="#" class="nav-link active" data-filter="all">DIR_ALL</a>
-        <a href="#" class="nav-link" data-filter="software">DIR_SOFTWARE</a>
-        <a href="#" class="nav-link" data-filter="hardware">DIR_HARDWARE</a>
+    <div id="socials-container" style="margin-top: 40px;">
+        <h2>//SOCIAL_CHANNELS</h2>
+        <div class="nav-menu">
+            <a href="https://github.com/Abuzzcar" class="nav-link" target="_blank" rel="noopener noreferrer">GITHUB</a>
+            <a href="https://tiktok.com/@Abuzzcar" class="nav-link" target="_blank" rel="noopener noreferrer">TIKTOK</a>
+            <a href="https://x.com/AbuzzcarOtacon" class="nav-link" target="_blank" rel="noopener noreferrer">TWITTER</a>
+            <a href="https://gunpla.otacons-lab.com" class="nav-link" target="_blank" rel="noopener noreferrer">GUNDAM_BLOG</a>
+        </div>
+        <div class="sub-bar"></div>
     </div>
 
-    <div id="projects-container">
+    <div id="projects-container" style="margin-top: 40px;">
         <h2>//PROJECTS_LIST</h2>
+        <div class="nav-menu">
+            <a href="#" class="nav-link filter-btn active" data-filter="all">DIR_ALL</a>
+            <a href="#" class="nav-link filter-btn" data-filter="software">DIR_SOFTWARE</a>
+            <a href="#" class="nav-link filter-btn" data-filter="hardware">DIR_HARDWARE</a>
+        </div>
         <div class="sub-bar"></div>
 
         <div class="project-card" data-category="software">
@@ -170,20 +199,33 @@
             &gt;&gt; <a class="ext-link" href="#">ACCESS_REPOSITORY</a>
         </div>
     </div>
+
+    <footer>
+        <div class="footer-item">
+            ENQUIRIES: <a href="mailto:contact@otacons-lab.com" class="footer-link">ABUZZCAR@OTACONS-LAB.COM</a>
+        </div>
+        <div class="footer-item">
+            &gt; <a href="https://gunpla.otacons-lab.com" class="footer-link" target="_blank" rel="noopener noreferrer">Gundam Blog</a>
+            (GUNPLA.OTACONS-LAB.COM)
+        </div>
+        <div class="footer-item">
+            © 2026 OTACON'S LAB - EST. 2026
+        </div>
+    </footer>
 </div>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const navLinks = document.querySelectorAll(".nav-link");
+        const filterBtns = document.querySelectorAll(".filter-btn");
         const projectCards = document.querySelectorAll(".project-card");
 
-        navLinks.forEach(link => {
-            link.addEventListener("click", (e) => {
+        filterBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
                 e.preventDefault();
-                navLinks.forEach(l => l.classList.remove("active"));
-                link.classList.add("active");
+                filterBtns.forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
 
-                const filterValue = link.getAttribute("data-filter");
+                const filterValue = btn.getAttribute("data-filter");
 
                 projectCards.forEach(card => {
                     const cardCategory = card.getAttribute("data-category");
